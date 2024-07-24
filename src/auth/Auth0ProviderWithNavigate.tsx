@@ -1,4 +1,4 @@
-import { AppState, Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -18,7 +18,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
   }
 
   //appState: stores the information of user after login 
-  const onRedirectCallback = (appState?: AppState) => {
+  const onRedirectCallback = () => {
     navigate("/auth-profile");
   };
 

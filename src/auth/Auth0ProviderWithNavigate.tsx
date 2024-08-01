@@ -19,7 +19,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
 
   //appState: stores the information of user after login 
   const onRedirectCallback = () => {
-    navigate("/auth-profile");
+    navigate("/auth-callback");
   };
 
   //token can be accessed only when wrapped in auth0provider

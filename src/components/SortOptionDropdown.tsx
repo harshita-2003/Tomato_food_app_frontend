@@ -11,7 +11,7 @@ type Props = {
   sortOption: string;
 };
 
-const sort_options = [
+const SORT_OPTIONS = [
   {
     label: "Best match",
     value: "bestMatch",
@@ -28,8 +28,8 @@ const sort_options = [
 
 const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
   const selectedSortLabel =
-    sort_options.find((option) => option.value == sortOption)?.label ||
-    sortOption[0].label;
+    SORT_OPTIONS.find((option) => option.value === sortOption)?.label ||
+    SORT_OPTIONS[0].label;
 
   return (
     <DropdownMenu>
@@ -39,7 +39,7 @@ const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {sort_options.map((option) => (
+        {SORT_OPTIONS.map((option) => (
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => onChange(option.value)}

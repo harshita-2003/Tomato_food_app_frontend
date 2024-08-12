@@ -1,4 +1,4 @@
-import { Auth0Provider } from "@auth0/auth0-react";
+import { AppState, Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -18,8 +18,8 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
   }
 
   //appState: stores the information of user after login 
-  const onRedirectCallback = () => {
-    navigate("/auth-callback");
+  const onRedirectCallback = (appState? : AppState) => {
+    navigate(appState?.returnTo || "/auth-callback");
   };
 
   //token can be accessed only when wrapped in auth0provider

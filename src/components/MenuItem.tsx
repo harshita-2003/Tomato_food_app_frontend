@@ -1,9 +1,9 @@
-import { MenuItem } from "@/types";
+import { MenuItem as MenuItemType } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { PlusCircle } from "lucide-react";
 
 type Props = {
-  menuItem: MenuItem;
+  menuItem: MenuItemType;
   addToCart: () => void;
 };
 

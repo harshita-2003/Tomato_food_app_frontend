@@ -6,7 +6,6 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const OrderStatusPage = () => {
   const { orders, isLoading } = useGetMyOrders();
-  //console.log(orders)
 
   if (isLoading) {
     return "Loading...";

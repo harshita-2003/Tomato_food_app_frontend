@@ -29,7 +29,6 @@ function SearchPage() {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const { results, isLoading } = useSearchRestaurants(searchState, city);
-  console.log(results);
 
   const setSortOption = (sortOption: string) => {
     setSearchState((prev) => ({

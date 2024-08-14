@@ -73,7 +73,6 @@ const ManageRestaurantForm = ({ onSave, isLoading , restaurant }: Props) => {
   } ,[restaurant,form])
 
   const onSubmit = (formDataJson: RestaurantFormData) => {
-    console.log(formDataJson)
     const formData = new FormData();
 
     formData.append("restaurantName", formDataJson.restaurantName);
@@ -103,7 +102,6 @@ const ManageRestaurantForm = ({ onSave, isLoading , restaurant }: Props) => {
       formData.append(`imageFile`, formDataJson.imageFile);
     }
 
-    console.log(formData)
     onSave(formData);
   };
 

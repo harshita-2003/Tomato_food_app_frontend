@@ -1,5 +1,6 @@
+import React from 'react';
 import { Separator } from './ui/separator';
-import { Banknote, ChefHat, CookingPot } from 'lucide-react';
+import { Banknote, ChefHat, CookingPot, PartyPopper, Timer, Truck } from 'lucide-react';
 import { Order } from '@/types';
 
 type Props = {
@@ -7,6 +8,58 @@ type Props = {
 };
 
 const OrderStatusDetail = ({ order }: Props) => {
+
+  const renderOrderStatus = () => {
+    switch (order.status) {
+      case 'paid':
+        return (
+          <>
+            <div className="relative animate-bounce">
+              <Timer className="w-10 h-10 text-yellow-500" />
+            </div>
+            <p className="text-center text-gray-500">
+              Waiting for restaurant approval.
+            </p>
+          </>
+        );
+      case 'inProgress':
+        return (
+          <>
+            <div className="relative animate-bounce">
+              <CookingPot className="w-10 h-10 text-red-500" />
+            </div>
+            <p className="text-center text-gray-500">
+              Restaurant is preparing your food.
+            </p>
+          </>
+        );
+      case 'outForDelivery':
+        return (
+          <>
+            <div className="relative animate-bounce">
+              <Truck className="w-10 h-10 text-green-500" />
+            </div>
+            <p className="text-center text-gray-500">
+              Your delicious food is on the way!
+            </p>
+          </>
+        );
+      case 'delivered':
+        return (
+          <>
+            <div className="relative animate-bounce">
+              <PartyPopper className="w-10 h-10 text-purple-500" />
+            </div>
+            <p className="text-center text-gray-500">
+              Hope you enjoy your food! 🥳
+            </p>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="space-y-8 p-6 bg-gray-50 rounded-lg shadow-lg max-w-lg">
       <div className="flex items-center justify-center mb-6">
@@ -44,12 +97,9 @@ const OrderStatusDetail = ({ order }: Props) => {
         </span>
       </div>
 
-      <div className="flex justify-center mt-10">
-        <div className="relative animate-bounce">
-          <CookingPot />
-        </div>
+      <div className="flex flex-col items-center justify-center mt-10 gap-y-2">
+        {renderOrderStatus()}
       </div>
-      <p className="text-center text-gray-500 mt-2">Your delicious food is on the way!</p>
     </div>
   );
 };

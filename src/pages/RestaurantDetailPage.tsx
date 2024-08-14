@@ -101,8 +101,6 @@ const RestaurantDetailPage = () => {
       }
     }
 
-    console.log()
-
     const data = await createCheckoutSession(checkoutData);
     window.location.href = data.url
   }

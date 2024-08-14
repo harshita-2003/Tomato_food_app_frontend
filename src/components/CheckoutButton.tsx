@@ -5,6 +5,7 @@ import LoadingButton from "./LoadingButton";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { useGetMyUser } from "@/api/MyUserApi";
 import  UserProfileForm , { UserFormData } from "@/forms/user_profile_form/UserProfileForm";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 type Props = {
   onCheckout: (userFormData: UserFormData) => void;
@@ -47,7 +48,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
     <Dialog >
       <DialogTrigger asChild>
         <Button disabled={disabled} className="bg-orange-500 flex-1">
-          Go to checkout
+          Go to checkout <SquareArrowOutUpRight className="mx-2" />
         </Button>
       </DialogTrigger>
       <DialogTitle></DialogTitle>

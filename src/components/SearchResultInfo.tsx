@@ -12,7 +12,7 @@ function SearchResultInfo({ total,city } : Props) {
             {total} Restaurants found in {city} 
             <Link 
               to="/" 
-              className="text-sm font-semibold underline cursor-pointer text-blue-500"
+              className="text-sm font-semibold underline cursor-pointer text-blue-500 mx-2"
             >
               Change Location
             </Link>

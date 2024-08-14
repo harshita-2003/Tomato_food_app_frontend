@@ -1,4 +1,3 @@
-import React from 'react';
 import { Separator } from './ui/separator';
 import { Banknote, ChefHat, CookingPot, PartyPopper, Timer, Truck } from 'lucide-react';
 import { Order } from '@/types';

@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import LoadingButton from "@/components/LoadingButton";
 import { User } from "@/types";
 import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const formSchema = z.object({
   email: z.string().optional(),
@@ -50,6 +52,8 @@ const UserProfileForm = ({
     form.reset(currentUser);
   }, [currentUser, form]);
 
+  const user = useAuth0();
+ 
   return (
     <Form {...form}>
       <form
@@ -61,6 +65,10 @@ const UserProfileForm = ({
           <FormDescription>
             View and change your profile information here
           </FormDescription>
+        </div>
+
+        <div>
+          <img src={user?.user?.picture} alt="profile_img" className="rounded-full" />
         </div>
 
         <FormField
